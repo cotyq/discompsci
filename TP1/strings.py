@@ -4,7 +4,9 @@ def facturas(cantidad):
     Cantidad de facturas: <nro> donde nro es el número que se pasa como argumento.
     Si las facturas son mas de 12, se tiene que devolver Cantidad de facturas: muchas.
     """
-    pass
+    if cantidad > 12:
+        return 'Cantidad de facturas: muchas'
+    return f'Cantidad de facturas: {cantidad}'
 
 
 def ambos(w):
@@ -14,7 +16,9 @@ def ambos(w):
     aplicar ambos a primavera devuelve prra. Si s posee menos de dos caracteres,
     el resultado es el string vacio.
     """
-    pass
+    if len(w) < 2:
+        return ''
+    return w[0:2] + w[-2:]
 
 
 def fix(uwu):
