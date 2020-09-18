@@ -10,16 +10,18 @@ UnkonowTypeError que es-un TypeError el cual recibe comp parámetro el nombre de
 
 
 class UnkonowTypeError(TypeError):
-    def __init__(self, str):
-        super().__init__(str)
+    def __init__(self, palabra):
+        super().__init__(palabra)
 
 
 def introspeccion(objeto, fun_or_attr, *args, **kwargs):
-    if hasattr(objeto, fun_or_attr) and not callable(getattr(objeto, fun_or_attr)):
-        return getattr(objeto, fun_or_attr)
-    if callable(getattr(objeto, fun_or_attr)):
-        return getattr(objeto, fun_or_attr)(*args, **kwargs)
-    raise UnkonowTypeError(fun_or_attr)
+    try:
+        if hasattr(objeto, fun_or_attr) and not callable(getattr(objeto, fun_or_attr)):
+            return getattr(objeto, fun_or_attr)
+        if callable(getattr(objeto, fun_or_attr)):
+            return getattr(objeto, fun_or_attr)(*args, **kwargs)
+    except AttributeError:
+        raise UnkonowTypeError(fun_or_attr)
 
 
 class Fruta:
