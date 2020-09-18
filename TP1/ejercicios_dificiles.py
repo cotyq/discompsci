@@ -1,4 +1,4 @@
-import textwrap
+import math
 
 
 def invitados(d):
@@ -18,4 +18,22 @@ def justificar(s):
     Dado un string implementar la función justificar que fija la longitud de cada línea en 80 caracteres
      y justifica cada línea.
      """
-    print(textwrap.fill(s, width=80))
+    palabras = s.split()
+    final = []
+    linea = []
+    c = 0
+    for palabra in palabras:
+        if c + len(palabra) < 80 - len(linea):
+            linea.append(palabra)
+            c += len(palabra)
+        else:
+            espacios_extra = 80 - len(linea) - c 
+            if espacios_extra > 0:
+                k = math.ceil((len(linea) / espacios_extra))
+                for i in range(0, len(linea), k):
+                    linea[i] += " "
+            final.append(" ".join(linea))
+            linea = [palabra]
+            c = len(palabra)
+    final.append(" ".join(linea))
+    return "\n".join(final)
