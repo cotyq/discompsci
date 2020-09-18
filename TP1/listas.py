@@ -1,5 +1,3 @@
-import numpy as np
-
 def matcheos(l):
     """
     Implementar la función macheos que dada una lista de strings devuelve un número representando
@@ -8,7 +6,7 @@ def matcheos(l):
     if isinstance(l,list):
         c = 0
         for i in l:
-            if isinstance(i,str):
+            if not isinstance(i,str):
                 print("Dame una lista de strings!")
             elif len(i) > 2:
                 if i[-1] ==i[-2]:
@@ -27,7 +25,7 @@ def front_x(l):
     x = []
     
     for i in l:
-        if isinstance(i,str):
+        if not isinstance(i,str):
                 print("Dame una lista de strings!")
         elif i[0] == "x":
             x.append(i)
@@ -45,7 +43,8 @@ def sort_last(l):
     Ejemplo: aplicar sort_last a [(1, 7), (1, 3), (3, 4, 5), (2, 2)] devuelve [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
     if isinstance(l,list):
-        return l.sort(key = lambda l: l[-1]) 
+        l.sort(key = lambda l: l[-1]) 
+        return l
     else:
         print("Dame una lista!")
 
@@ -54,4 +53,14 @@ def tablas(nro):
     """
     Implementar la función tablas que dado un argumento nro, devuelve la tabla de multiplicar de nro del 1 al 10.
     """
-    return np.arange(1,11,1)*nro
+    return [nro * i for i in range(1, 11)]
+
+
+if __name__ == "__main__":
+    print(matcheos(['casa', 'laaa', 'auto', 'leeee']))
+
+    print(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']))
+
+    print(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]))
+
+    print(tablas(3))

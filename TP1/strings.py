@@ -53,3 +53,18 @@ def mezclar(a, b):
         return b[0] + a[1:] + " " + a[0] + b[1:]
     else:
         print("Dame dos strings!")
+        
+
+if __name__ == "__main__":
+    print(facturas(15))
+    print(facturas(11))
+
+    print(ambos('c'))
+    print(ambos('ca'))
+    print(ambos('cas'))
+    print(ambos('casa'))
+    print(ambos('casamiento'))
+
+    print(fix('burbuja'))
+
+    print(mezclar('mix', 'pod'))

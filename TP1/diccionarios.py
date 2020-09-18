@@ -5,16 +5,24 @@ def mapeo(s):
     """
     if isinstance(s,str):
         d = {}
-        for i in range(len(s)-1,-1,-1):
-            d[s[i]] = i
+        for i, letra in enumerate(s):
+            if letra not in d:
+                d[letra] = i
         return d
     else:
         print("Dame un string!") 
-
 
 def busqueda_reversa(d, v):
     """
     Implementar la función busqueda_reversa que dado un diccionario y un objeto cualquiera,
     permita buscar por valores de diccionarios en vez de claves
     """
-    return list(d.keys())[list(d.values()).index(v)]
+    return [key for key in d.keys() if d[key] == v]
+
+
+if __name__ == "__main__":
+    
+    print(mapeo('casa'))
+
+    d = {'Franco': 'UNL', 'Coty': 'UTN', 'Eugenio': 'UNL'}
+    print(busqueda_reversa(d, 'UNL'))
