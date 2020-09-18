@@ -4,7 +4,7 @@ def facturas(nro):
     Cantidad de facturas: <nro> donde nro es el número que se pasa como argumento.
     Si las facturas son mas de 12, se tiene que devolver Cantidad de facturas: muchas.
     """
-    if isinstance(nro,int) or isinstance(nro,float):
+    if isinstance(nro, int) or isinstance(nro, float):
         if nro < 13:
             return f"Cantidad de facturas: {nro}"
         else:
@@ -20,9 +20,9 @@ def ambos(s):
     aplicar ambos a primavera devuelve prra. Si s posee menos de dos caracteres,
     el resultado es el string vacio.
     """
-    if isinstance(s,str):
+    if isinstance(s, str):
         if len(s) > 2:
-            return s[0]+s[1]+s[-2]+s[-1]
+            return s[0] + s[1] + s[-2] + s[-1]
         else:
             return ""
     else:
@@ -36,8 +36,8 @@ def fix(s):
     Por ejemplo evaluar fix a la palabra burbuja devuelve bur*uja.
     Ayuda, estudiar la función replace.
     """
-    if isinstance(s,str):
-        return s[0]+s[1:].replace(s[0],"*")
+    if isinstance(s, str):
+        return s[0] + s[1:].replace(s[0], "*")
     else:
         print("Dame un string!")
 
@@ -49,22 +49,22 @@ def mezclar(a, b):
     de cada string que son intercambiados. Por ejemplo, mezclar('mix' , 'pod')
     devuelve pix mod.
     """
-    if isinstance(a,str) and isinstance(b,str):
+    if isinstance(a, str) and isinstance(b, str):
         return b[0] + a[1:] + " " + a[0] + b[1:]
     else:
         print("Dame dos strings!")
-        
+
 
 if __name__ == "__main__":
     print(facturas(15))
     print(facturas(11))
 
-    print(ambos('c'))
-    print(ambos('ca'))
-    print(ambos('cas'))
-    print(ambos('casa'))
-    print(ambos('casamiento'))
+    print(ambos("c"))
+    print(ambos("ca"))
+    print(ambos("cas"))
+    print(ambos("casa"))
+    print(ambos("casamiento"))
 
-    print(fix('burbuja'))
+    print(fix("burbuja"))
 
-    print(mezclar('mix', 'pod'))
+    print(mezclar("mix", "pod"))
